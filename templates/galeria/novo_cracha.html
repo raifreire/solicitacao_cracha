@@ -1,0 +1,56 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+{% block content %}
+
+            <section class="galeria" style="margin-left: 5em">
+                <form action="{% url 'novo_cracha' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        {% for field in form.visible_fields %}
+                        <div class="col-12" style="margin-bottom: 10px;">
+                            <label for="{{ field.id_for_label }}" style="color:#D9D9D9; margin-bottom: 5px;">{{field.label}}</label>
+                            {{ field }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-success col-12" style="padding: top 5px;">Criar</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const handleCPF = (event) => {
+            let input = event.target
+            input.value = cpfMask(input.value)
+        }
+      
+        const cpfMask = (value) => {
+            if (!value) return ""
+            value = value.replace(/\D/g, '') // Remove caracteres não numéricos
+            value = value.replace(/(\d{3})(\d)/, "$1.$2") // Adiciona ponto após os primeiros 3 dígitos
+            value = value.replace(/(\d{3})(\d)/, "$1.$2") // Adiciona ponto após os próximos 3 dígitos
+            value = value.replace(/(\d{3})(\d{1,2})$/, "$1-$2") // Adiciona hífen antes dos últimos 2 dígitos
+            return value
+        }
+        
+        const handleRG = (event) => {
+            let input = event.target
+            input.value = rgMask(input.value)
+        }
+          
+        const rgMask = (value) => {
+            if (!value) return ""
+            value = value.replace(/\D/g, '') // Remove caracteres não numéricos
+            value = value.replace(/(\d{2})(\d)/, "$1.$2") // Adiciona ponto após os primeiros 2 dígitos
+            value = value.replace(/(\d{3})(\d)/, "$1.$2") // Adiciona ponto após os próximos 3 dígitos
+            value = value.replace(/(\d{3})(\d{1,2})$/, "$1-$2") // Adiciona hífen antes dos últimos 1 ou 2 dígitos
+            return value
+        }
+          
+      </script>
+</body>
+
+{% endblock %}
