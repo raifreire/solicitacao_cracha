@@ -17,10 +17,10 @@ class Cracha(models.Model):
     nome_completo = models.CharField(max_length=150, null=False, blank=False)
     rg = models.CharField(max_length=150, null=False, blank=False)
     cpf = models.CharField(max_length=14, null=False, blank=False)
-    funcao = models.TextField(max_length=150, choices=OPCOES_CATEGORIA, default='')
     foto = models.ImageField(upload_to="fotos/%Y/%m/%d/", blank=True)
     publicada = models.BooleanField(default=True)
     data_cracha = models.DateTimeField(default=datetime.now, blank=False)
+    funcao = models.TextField(max_length=150, choices=OPCOES_CATEGORIA, default='')
     usuario = models.ForeignKey(
         to=User,
         on_delete=models.SET_NULL,

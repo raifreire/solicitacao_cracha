@@ -24,7 +24,6 @@ class CrachaForms(forms.ModelForm):
             'nome_completo': forms.TextInput(attrs={'class':'form-control'}),
             'rg': forms.TextInput(attrs={'class':'form-control'}),
             'cpf': forms.TextInput(attrs={'class':'form-control'}),
-            'funcao': forms.Select(attrs={'class':'form-control'}),
             'foto': forms.FileInput(attrs={'class':'form-control'}),
             'data_cracha': forms.DateInput(
                 format = '%d/%m/%Y',
@@ -33,5 +32,6 @@ class CrachaForms(forms.ModelForm):
                     'class':'form-control'
                 }
             ),
+            'funcao': forms.Select(attrs={'class':'form-control'}),
             'usuario': forms.Select(attrs={'class':'form-control'}),
         }
