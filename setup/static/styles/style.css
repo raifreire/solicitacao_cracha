@@ -176,16 +176,15 @@ table {
     height: auto;
     justify-content: center;
     padding: 2px;
-    width: auto;    
+    width: auto;
 }
 
-
-input:focus{
+ input:focus {
     box-shadow: 0 0 0 0;
     border: 0 none;
     outline: 0;
-    color: white;
-}
+} 
+
 
 .busca__fundo {
     align-items: center;
@@ -370,9 +369,10 @@ input:focus{
 .menu-lateral__navegacao img {
     margin-right: 1.5rem;
 }
-.menu-lateral__navegacao i{
+
+.menu-lateral__navegacao i {
     padding-right: 1.5rem;
-    
+
 }
 
 .pagina-inicial {
