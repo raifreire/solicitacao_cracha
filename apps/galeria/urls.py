@@ -9,5 +9,5 @@ urlpatterns = [
     path('novo-cracha', novo_cracha, name='novo_cracha'),
     path('editar-cracha/<int:foto_id>', editar_cracha, name='editar_cracha'),
     path('deletar-cracha/<int:foto_id>', deletar_cracha, name='deletar_cracha'),
-    path('filtro/<str:categoria>', filtro, name='filtro'),
+    path('filtro/<str:status>', filtro, name='filtro'),
 ]

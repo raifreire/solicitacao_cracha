@@ -12,6 +12,12 @@ class Cracha(models.Model):
         ("ADMINISTRATIVO","ASSISTENTE ADMINISTRATIVO"),
         ("SUPERVISOR","SUPERVISOR COMERCIAL"),
     ]
+    OPCOES_STATUS = [ 
+        ("SOLICITADO", "SOLICITADO"),
+        ("EM_PRODUCAO","EM PRODUÇÃO"),
+        ("PENDENTE", "PENDENTE"),
+        ("CONFECCIONADO", "CONFECCIONADO")
+    ]
 
     nome = models.CharField(max_length=100, null=False, blank=False)
     nome_completo = models.CharField(max_length=150, null=False, blank=False)
@@ -21,6 +27,7 @@ class Cracha(models.Model):
     publicada = models.BooleanField(default=True)
     data_cracha = models.DateTimeField(default=datetime.now, blank=False)
     funcao = models.TextField(max_length=150, choices=OPCOES_CATEGORIA, default='')
+    status = models.CharField(max_length=100, choices=OPCOES_STATUS, default='' )
     usuario = models.ForeignKey(
         to=User,
         on_delete=models.SET_NULL,

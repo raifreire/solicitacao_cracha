@@ -65,7 +65,8 @@ def deletar_cracha(request, foto_id):
     messages.success(request, 'Deleção feita com sucesso!')
     return redirect('index')
 
-def filtro(request):
+def filtro(request, status):
+    print(status)
     crachas = Cracha.objects.order_by("data_cracha").filter(publicada=True)
 
     return render(request, 'galeria/index.html', {"cards": crachas})
