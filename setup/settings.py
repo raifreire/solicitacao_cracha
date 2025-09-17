@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from django.contrib.messages import constants as messages
-from pathlib import Path, os
+from pathlib import Path
+import os
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -153,12 +154,7 @@ USE_TZ = True
 # STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
 
 STATIC_URL = 'static/'
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'setup/static')
-]
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [BASE_DIR / 'static',]
 
 # Media
 

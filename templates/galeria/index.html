@@ -13,7 +13,6 @@
                 </section>
                 <section class="galeria">
                     <div class="cards">
-                        <h2 class="cards__titulo">Navegue pelas Solicitações</h2>
                         <ul class="cards__lista">
                             {% if cards %}
                             {% for cracha in cards %}
@@ -29,10 +28,9 @@
                                 <div class="card__info">
                                     <p class="card__titulo">{{cracha.nome}}</p>
                                     <div class="card__texto">
+                                        <p class="card__descricao">{{cracha.rg}}</p>
+                                        <p class="card__descricao">{{cracha.cpf}}</p>
                                         <p class="card__descricao">{{cracha.funcao}}</p>
-                                        <span>
-                                            <img src="{% static 'assets/ícones/1x/favorite_outline.png' %}" alt="ícone de coração">
-                                        </span>
                                     </div>
                                 </div>
                             </li>

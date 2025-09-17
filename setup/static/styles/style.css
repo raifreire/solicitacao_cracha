@@ -213,7 +213,12 @@ table {
     width: 2rem;
     height: 2rem;
 }
-
+.button_busca button{
+    display: flex;
+    background-color: transparent;
+    width: 3px;
+}
+/****************** CARDS *******************/
 .cards {
     width: 100%;
 }
@@ -238,11 +243,11 @@ table {
     color: #FFFFFF;
     margin-bottom: 1.5rem;
     position: relative;
-    width: 450px;
+    width: 130px;
 }
 
 .card__imagem {
-    width: 450px;
+    width: 130px;
     border-radius: 10px 10px 0 0;
 }
 
@@ -259,16 +264,16 @@ table {
     top: 20px;
     width: 100px;
 }
-
 .card__info {
     font-size: 1.2rem;
-    padding: 0 1.5rem 1rem 1.5rem;
+    padding: 0 1rem 0.5rem 1rem;
 }
 
 .card__titulo {
     font-weight: bold;
+    font-size: small;
     line-height: 1.2rem;
-    margin-top: 0.8em;
+    margin-top: 0.6em;
 }
 
 .card__texto {
@@ -285,7 +290,7 @@ table {
     font-size: 0.6em;
     margin-top: 0.8em;
 }
-
+/****************** CARDS *******************/
 .galeria {
     display: flex;
     width: 100%;
@@ -296,7 +301,11 @@ table {
     justify-content: center;
     align-items: center;
 }
-
+.img_logomarca{
+    width: 6rem;
+    height: 7rem;
+    border: 1px solid red
+}
 .imagem__conteudo {
     background-color: transparent;
     display: flex;
