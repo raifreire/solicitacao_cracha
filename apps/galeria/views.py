@@ -1,16 +1,21 @@
 from django.shortcuts import render, get_object_or_404, redirect
-
 from apps.galeria.models import Cracha
 from apps.galeria.forms import CrachaForms
-
 from django.contrib import messages
 
 def index(request):
     if not request.user.is_authenticated:
         messages.error(request, 'Usuário não logado')
         return redirect('login')
-
-    crachas = Cracha.objects.order_by("data_cracha").filter(publicada=True)
+    
+     # Verifica se o usuário é um superusuário
+    if request.user.is_superuser:
+        # Se for superusuário, lista todos os crachás
+        crachas = Cracha.objects.order_by("-data_cracha")
+    else:
+        # Se não for, filtra apenas os crachás do usuário logado
+        crachas = Cracha.objects.order_by("-data_cracha").filter(usuario=request.user)
+    
     return render(request, 'galeria/index.html', {"cards": crachas})
 
 def imagem(request, foto_id):
@@ -36,13 +41,16 @@ def novo_cracha(request):
         messages.error(request, 'Usuário não logado')
         return redirect('login')
 
-    form = CrachaForms
     if request.method == 'POST':
         form = CrachaForms(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            cracha_instance = form.save(commit=False)
+            cracha_instance.usuario = request.user
+            cracha_instance.save()
             messages.success(request, 'Novo cracha criado!')
             return redirect('index')
+    else:
+        form = CrachaForms(initial={'usuario': request.user})
 
     return render(request, 'galeria/novo_cracha.html', {'form': form})
 
@@ -66,7 +74,13 @@ def deletar_cracha(request, foto_id):
     return redirect('index')
 
 def filtro(request, status):
-    print(status)
-    crachas = Cracha.objects.order_by("data_cracha").filter(publicada=True)
 
-    return render(request, 'galeria/index.html', {"cards": crachas})
+     # Verifica se o usuário é um superusuário
+    if request.user.is_superuser:
+        # Se for superusuário, lista todos os crachás
+        crachas = Cracha.objects.order_by("-data_cracha").filter(status=status)
+        return render(request, 'galeria/index.html', {"cards": crachas})
+    else:
+        # Se não for, filtra apenas os crachás do usuário logado    
+        crachas = Cracha.objects.order_by("-data_cracha").filter(usuario=request.user, status=status)
+        return render(request, 'galeria/index.html', {"cards": crachas})

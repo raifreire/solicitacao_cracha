@@ -11,18 +11,23 @@
                         {% endif %}
                         <div class="imagem__info">
                             <div class="imagem__texto">
-                                <p class="imagem__titulo">{{crachas.nome_completo}}</p>
-                                <p class="imagem__descricao">{{crachas.cpf}}</p>
+                                 <label for="nome">NOME:</label>
+                                <p class="imagem__texto">{{crachas.nome_completo}}</p>
+                                <label for="rg">RG:</label>
+                                <p class="imagem__texto">{{crachas.rg}}</p>
+                                <label for="cpf">CPF:</label>
+                                <p class="imagem__texto">{{crachas.cpf}}</p>
+                                <label for="funcao">FUNÇÃO:</label>
                                 <p class="imagem__texto">{{crachas.funcao}}</p>
-                            </div>
-                            <div>
-                                <a href="{% url 'editar_cracha' crachas.id %}"><button class="btn btn-success col-12" style="padding: top 5px;">Editar</button></a>
-                                <a href="{% url 'deletar_cracha' crachas.id %}"><button class="btn btn-danger col-12" style="padding: top 5px;">Deletar</button></a>
                             </div>
                         </div>
                     </div>
                 </section>
             </section>
+            <div>
+                <a href="{% url 'editar_cracha' crachas.id %}"><button class="btn btn-success col-12" style="padding: top 5px;">Editar</button></a>
+                <a href="{% url 'deletar_cracha' crachas.id %}"><button class="btn btn-danger col-12" style="padding: top 5px;">Deletar</button></a>
+            </div>
         </main>
     </div>
 {% endblock %}

@@ -185,7 +185,6 @@ table {
     outline: 0;
 } 
 
-
 .busca__fundo {
     align-items: center;
     background-color: #041A37;
@@ -228,10 +227,10 @@ table {
 .cards__lista {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: start;
+    gap: 1rem;
     align-content: space-between;
 }
-
 .card {
     border-radius: 10px;
     box-shadow: 0px 10px 10px #00000050;
@@ -240,12 +239,10 @@ table {
     position: relative;
     width: 130px;
 }
-
 .card__imagem {
     width: 130px;
     border-radius: 10px 10px 0 0;
 }
-
 .card__tag {
     background-color: #D9D9D940;
     border-radius: 8px;
@@ -259,58 +256,49 @@ table {
     top: 20px;
     width: 100px;
 }
-
 .card__info {
     font-size: 1.2rem;
-    padding: 0 1rem 0.5rem 1rem;
+    padding: 0 0.3rem 0.2rem 0.3rem;
 }
-
 .card__titulo {
     font-size: small;
     font-weight: bold;
     line-height: 1.2rem;
     margin-top: 0.8em;
 }
-
 .card__texto {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
-
 .card__texto img {
     cursor: pointer;
 }
-
 .card__descricao {
     font-size: 0.6em;
     margin-top: 0.8em;
 }
-
 .galeria {
     display: flex;
     width: 100%;
 }
-
 .imagem {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .imagem__conteudo {
     background-color: transparent;
     display: flex;
     flex-direction: column;
     border-radius: 20px 20px 0 0;
-    width: 950px;
+    width: 250px;
+    height: 400px;
 }
-
 .imagem__imagem {
     width: 100%;
     border-radius: 20px;
 }
-
 .imagem__info {
     font-size: 1.2rem;
     display: flex;
@@ -319,7 +307,6 @@ table {
     margin-bottom: 1rem;
     margin-top: 1rem;
 }
-
 .imagem__texto {
     display: flex;
     flex-direction: column;
@@ -327,17 +314,20 @@ table {
     color: #FFFFFF;
     margin-top: 0.5rem;
 }
-
+.imagem__texto p{
+    border: 3px solid black;
+    border-radius: 5px;
+    padding: 0.3rem;
+    margin-bottom: 0.5rem;
+}
 .imagem__titulo {
     font-weight: bold;
     line-height: 2rem;
     color: #FFFFFF;
 }
-
 .imagem__texto {
     font-size: 1rem;
 }
-
 .imagem__descricao {
     font-size: 0.7rem;
 }
@@ -351,18 +341,15 @@ table {
     background-color: transparent;
     border: none;
 }
-
 .menu-lateral {
-    padding-right: 1.5rem;
+    padding-right: 1rem;
     box-sizing: border-box;
     min-width: 270px;
 }
-
 .menu-lateral__navegacao {
     display: flex;
     flex-direction: column;
 }
-
 .menu-lateral__navegacao a {
     font-family: 'Space Grotesk', sans-serif;
     align-items: center;
@@ -372,46 +359,36 @@ table {
     color: #D9D9D9;
     font-size: 24px;
 }
-
 .menu-lateral__navegacao a:first-child {
     font-weight: normal;
 }
-
 .menu-lateral__navegacao img {
     margin-right: 1.5rem;
 }
-
 .menu-lateral__navegacao i {
     padding-right: 1.5rem;
-
 }
-
 .pagina-inicial {
     max-width: 1440px;
     padding: 1.5rem;
     margin: 0 auto;
 }
-
 .populares {
     margin-left: 1.5rem;
 }
-
 .populares__titulo {
     font-size: 2rem;
     color: #7B78E5;
     line-height: 3rem;
     margin-bottom: 1.5rem;
 }
-
 .populares__imagens {
     display: flex;
     flex-direction: column;
 }
-
 .populares__imagem {
     margin-bottom: 1.5rem;
 }
-
 .populares__botao {
     width: 100%;
     height: 50px;
@@ -420,7 +397,6 @@ table {
     padding: 2px;
     box-sizing: border-box;
 }
-
 .populares__link {
     display: flex;
     justify-content: center;
@@ -438,19 +414,20 @@ table {
 .populares__link:hover {
     background: transparent;
 }
-
 .principal {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
-
 .rodape {
     background-color: #04244F;
     width: 100%;
+    height: 50px;
+    position: fixed;    
+    bottom: 0;
     padding: 1.5rem 3rem;
     box-sizing: border-box;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     color: #FFFFFF;
 }
 
@@ -470,6 +447,7 @@ table {
     align-items: center;
     color: #D9D9D9;
     font-size: 0.8rem;
+    margin-bottom: 2rem;
 }
 
 .tags__titulo {

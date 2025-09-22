@@ -6,7 +6,7 @@
                     <p class="tags__titulo">Busque por tags:</p>
                     <ul class="tags__lista">
                         <li class="tags__tag"><a href="{% url 'filtro' 'SOLICITADO' %}" class="btn" style="color: #C9C9C9;">SOLICITADO</a></li>
-                        <li class="tags__tag"><a href="{% url 'filtro' 'EM PRODUCAO' %}" class="btn" style="color: #C9C9C9;">EM PRODUÇÃO</a></li>
+                        <li class="tags__tag"><a href="{% url 'filtro' 'EM_PRODUCAO' %}" class="btn" style="color: #C9C9C9;">EM PRODUÇÃO</a></li>
                         <li class="tags__tag"><a href="{% url 'filtro' 'PENDENTE' %}" class="btn" style="color: #C9C9C9;">PENDENTE</a></li>
                         <li class="tags__tag"><a href="{% url 'filtro' 'CONFECCIONADO' %}" class="btn" style="color: #C9C9C9;">CONFECCIONADO</a></li>
                     </ul>
@@ -30,7 +30,7 @@
                                     <div class="card__texto">
                                         <p class="card__descricao">{{cracha.rg}}</p>
                                         <p class="card__descricao">{{cracha.cpf}}</p>
-                                        <p class="card__descricao">{{cracha.funcao}}</p>
+                                        <p class="card__descricao">{{cracha.get_funcao_display}}</p>
                                     </div>
                                 </div>
                             </li>

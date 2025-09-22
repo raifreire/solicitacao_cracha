@@ -44,7 +44,7 @@
         const rgMask = (value) => {
             if (!value) return ""
             value = value.replace(/\D/g, '') // Remove caracteres não numéricos
-            value = value.replace(/(\d{2})(\d)/, "$1.$2") // Adiciona ponto após os primeiros 2 dígitos
+            value = value.replace(/(\d{1})(\d)/, "$1.$2") // Adiciona ponto após os primeiros 2 dígitos
             value = value.replace(/(\d{3})(\d)/, "$1.$2") // Adiciona ponto após os próximos 3 dígitos
             value = value.replace(/(\d{3})(\d{1,2})$/, "$1-$2") // Adiciona hífen antes dos últimos 1 ou 2 dígitos
             return value

@@ -1,7 +1,5 @@
 from django.db import models
-
 from datetime import datetime
-
 from django.contrib.auth.models import User
 
 class Cracha(models.Model):
@@ -39,6 +37,7 @@ class Cracha(models.Model):
     nome = models.CharField(max_length=100, null=False, blank=False)
     nome_completo = models.CharField(max_length=150, null=False, blank=False)
     rg = models.CharField(max_length=150, null=False, blank=False)
+    orgao_expedidor = models.CharField(max_length=20,blank=True)
     cpf = models.CharField(max_length=14, null=False, blank=False)
     foto = models.ImageField(upload_to="fotos/%Y/%m/%d/", blank=True)
     publicada = models.BooleanField(default=True)
