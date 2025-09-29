@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: solicitacao-cracha-db
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5433:5432"  # Porta 5432 do hospedeiro mapeada para a porta 5432 do contêiner evita conflito.     
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+ 
+volumes:
+  pgdata:
